@@ -29,3 +29,14 @@ services:
       - mongo      
     links:
       - mongo             
+  ngrok: 
+    image: wernight/ngrok
+    ports:
+      - "4040:4040"
+    environment: 
+      - NGROK_LOOK_DOMAIN=api
+      - NGROK_PORT=3000
+    links:
+      - api 
+    depends_on:
+      - api       
